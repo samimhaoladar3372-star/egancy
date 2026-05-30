@@ -1,0 +1,261 @@
+import { Button } from "@/components/ui/button";
+
+export default function App() {
+  return (
+    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
+      {/* GOOGLE FONTS */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap');
+
+        :root {
+          --background: 201 100% 13%;
+          --foreground: 0 0% 100%;
+          --muted-foreground: 240 4% 66%;
+
+          --primary: 0 0% 100%;
+          --primary-foreground: 0 0% 4%;
+
+          --secondary: 0 0% 10%;
+          --muted: 0 0% 10%;
+          --accent: 0 0% 10%;
+
+          --border: 0 0% 18%;
+          --input: 0 0% 18%;
+
+          --font-display: 'Instrument Serif', serif;
+          --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+          font-family: var(--font-body);
+          background: hsl(var(--background));
+          color: hsl(var(--foreground));
+        }
+
+        .liquid-glass {
+          background: rgba(255, 255, 255, 0.01);
+          background-blend-mode: luminosity;
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+          border: none;
+          box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .liquid-glass::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          padding: 1.4px;
+          background: linear-gradient(
+            180deg,
+            rgba(255,255,255,0.45) 0%,
+            rgba(255,255,255,0.15) 20%,
+            rgba(255,255,255,0) 40%,
+            rgba(255,255,255,0) 60%,
+            rgba(255,255,255,0.15) 80%,
+            rgba(255,255,255,0.45) 100%
+          );
+
+          -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          pointer-events: none;
+        }
+
+        @keyframes fade-rise {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-rise {
+          animation: fade-rise 0.8s ease-out both;
+        }
+
+        .animate-fade-rise-delay {
+          animation: fade-rise 0.8s ease-out 0.2s both;
+        }
+
+        .animate-fade-rise-delay-2 {
+          animation: fade-rise 0.8s ease-out 0.4s both;
+        }
+      `}</style>
+
+      {/* VIDEO BACKGROUND */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 z-0 h-full w-full object-cover"
+      >
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* NAVBAR */}
+      <header className="relative z-10">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6">
+          {/* LOGO */}
+          <div
+            className="text-3xl tracking-tight text-foreground"
+            style={{
+              fontFamily: "'Instrument Serif', serif",
+            }}
+          >
+            Velorah
+            <sup className="text-xs">®</sup>
+          </div>
+
+          {/* NAV LINKS */}
+          <div className="hidden items-center gap-8 md:flex">
+            <a
+              href="#"
+              className="text-sm text-foreground transition-colors"
+            >
+              Home
+            </a>
+
+            <a
+              href="#"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Studio
+            </a>
+
+            <a
+              href="#"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              About
+            </a>
+
+            <a
+              href="#"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Journal
+            </a>
+
+            <a
+              href="#"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Reach Us
+            </a>
+          </div>
+
+          {/* NAV CTA */}
+          <Button
+            className="
+              liquid-glass
+              rounded-full
+              px-6
+              py-2.5
+              text-sm
+              text-foreground
+              transition-transform
+              hover:scale-[1.03]
+            "
+          >
+            Begin Journey
+          </Button>
+        </nav>
+      </header>
+
+      {/* HERO */}
+      <section
+        className="
+          relative
+          z-10
+          flex
+          min-h-screen
+          flex-col
+          items-center
+          justify-center
+          px-6
+          pt-32
+          pb-40
+          py-[90px]
+          text-center
+        "
+      >
+        {/* HEADING */}
+        <h1
+          className="
+            animate-fade-rise
+            max-w-7xl
+            text-5xl
+            font-normal
+            leading-[0.95]
+            tracking-[-2.46px]
+            sm:text-7xl
+            md:text-8xl
+          "
+          style={{
+            fontFamily: "'Instrument Serif', serif",
+          }}
+        >
+          Where{" "}
+          <em className="not-italic text-muted-foreground">
+            dreams
+          </em>{" "}
+          rise{" "}
+          <em className="not-italic text-muted-foreground">
+            through the silence.
+          </em>
+        </h1>
+
+        {/* SUBTEXT */}
+        <p
+          className="
+            animate-fade-rise-delay
+            mt-8
+            max-w-2xl
+            text-base
+            leading-relaxed
+            text-muted-foreground
+            sm:text-lg
+          "
+        >
+          We&apos;re designing tools for deep thinkers, bold creators,
+          and quiet rebels. Amid the chaos, we build digital spaces
+          for sharp focus and inspired work.
+        </p>
+
+        {/* HERO CTA */}
+        <Button
+          className="
+            liquid-glass
+            animate-fade-rise-delay-2
+            mt-12
+            cursor-pointer
+            rounded-full
+            px-14
+            py-5
+            text-base
+            text-foreground
+            transition-transform
+            hover:scale-[1.03]
+          "
+        >
+          Begin Journey
+        </Button>
+      </section>
+    </main>
+  );
+}
